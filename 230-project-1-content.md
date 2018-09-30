@@ -13,8 +13,11 @@
        <li><a href="project.html">Game</a></li>
    </nav>
     <h1>Mario Survival</h1>
-    <img src="Fire_Mario.png" alt="Fire Mario" id="mario"/>
-    <p id="overview"> Mario Survival is an arcade shooter game based off of the Mario series in which you can play as different Mario characters while you fight off an invasion by Bowser and his minions, with the goal being to survive as long as possible for all five levels. The project overall does not only focus on the game itself, but it also goes further into depth, describing the entire process of developing the game and giving credit to all of the resources used in the making of this project. Mario is one of my favorite video game characters and in the previous years I've been playing games online based on Mario, which have been developed by other designers as tribute to the long-running successful game franchise. Therefore, I also wanted to follow in these footsteps and become an impressive game designer myself.</p>
+
+    <section id="intro">
+        <img src="Fire_Mario.png" alt="Fire Mario" id="mario"/>
+        <p id="introduction"> Mario Survival is an arcade shooter game based off of the Mario series in which you can play as different Mario characters while you fight off an invasion by Bowser and his minions, with the goal being to survive as long as possible for all five levels. The project overall does not only focus on the game itself, but it also goes further into depth, describing the entire process of developing the game and giving credit to all of the resources used in the making of this project. Mario is one of my favorite video game characters and in the previous years I've been playing games online based on Mario, which have been developed by other designers as tribute to the long-running successful game franchise. Therefore, I also wanted to follow in these footsteps and become an impressive game designer myself.</p>
+    </section>
     <footer>
         <div><link rel="stylesheet" type="text/css" href="index.css"></div>
         <div id="copyright">&copy;2018 Ikenna Ajah</div>
@@ -37,51 +40,59 @@
    </nav>
     <h1>Mario Survival</h1>
     <img src="FireLuigi.png" alt="Fire Luigi" id="luigi"/>
-    <h2>Description</h2>
-    <p>Finding yourself in the middle of an assault by the evil Bowser and his minions, play as Fire Mario and fight your way to victory!</p>
-    
-    <div id="genre">Game Tags:</div><p>Adventure, Arcade, Shooter, Defense,Survival</p>
+    <section id="half">
+        <section id="left">
+            <h2 id="concept">Description</h2>
+                <p id="oneliner">Finding yourself in the middle of an assault by the evil Bowser and his minions, play as Fire Mario and fight your way to victory!</p>
 
+                <div id="genre">Game Tags:</div><p id="tags">Adventure, Arcade, Shooter, Defense</p>
+
+
+                <div id="platformer">Platform:</div><p id="platforms">Desktop and laptop only</p>
+
+
+                <h2 id="synopsis">Synopsis</h2>
+                <p id="plot">    One day, while enjoy a peaceful walk throughout the Mushroom Kingdom, Mario suddenly finds himself in another invasion by the evil King Bowser and his army. With no time to think, Mario quickly equips a Fire Flower and heads off with his friends to save the day once more from the tyrannical Koopa menace, but how long can they hold them off?</p>
+
+                <h2 id="esthetics">Design & Visual Style</h2>
+                <p id="look">    Mario Defense is drawn in a distinct cartoonish style while still retaining some of the classical elements related to gaming's most famous protagonist. With most of the music and sounds originating from the Mario franchise, but in a different kind of style. However, the background and zone music vary as the player progresses thorughout the game.</p>
+                        
+            <h3 id="how to play">Controls:</h3>
+            <ul id="controls">
+                <li>Move: Arrow Keys</li>
+                <li>Change Direction: Mouse</li>
+            </ul>
+        </section>
+        <section id="right">
+         
+            <h2 id="gameplay">How to Play</h2>
+                <p id="overview">    In the game, the player plays as Mario in his fire version as they play in various zones throughout the Mushroom Kingdom, fending off hordes of enemies for as many rounds as possible. Th enemies can range from the classical Mario foes, such as goombas, koopa troopas, bob - bombs, and hammer bros.Each one has a different level of endurance, along with a kind of attack pattern. The player can choose to play by themselves, or play with others. Also, they don't just have to play as Mario, they can also play as Luigi, Princess Peach, Toad, or even Yoshi. Some powerups will also be included, such as 1-Up Mushrooms, Power Stars, and the F.L.U.D.D. The main goal of each stage is to survive long enough, with a timer being given in each level along with an enemy count. The player will find out about the controls and the story through an instruction screen, which they will come across once they press the start button. In order to beat this game, the player needs a lot of focus, strategy, and determination.</p>
+        </section>
+    </section>
     
-    <div id="platformer">Platform:</div><p>Desktop and laptop only</p>
-    
-    
-    <h2 id="synopsis">Synopsis</h2>
-    <p>    One day, while enjoy a peaceful walk throughout the Mushroom Kingdom, Mario suddenly finds himself in another invasion by the evil King Bowser and his army. With no time to think, Mario quickly equips a Fire Flower and heads off with his friends to save the day once more from the tyrannical Koopa menace, but how long can they hold them off?</p>
-    
-    <h2 id="esthetics">Esthetics</h2>
-    <p>    Mario Defense is drawn in a distinct cartoonish style while still retaining some of the classical elements related to gaming's most famous protagonist. With most of the music and sounds originating from the Mario franchise, but in a different kind of style. However, the background and zone music vary as the player progresses thorughout the game.</p>
-    
-    <h2 id="gameplay">Gameplay</h2>
-        <p>    In the game, the player plays as Mario in his fire version as they play in various zones throughout the Mushroom Kingdom, fending off hordes of enemies for as many rounds as possible. Th enemies can range from the classical Mario foes, such as goombas, koopa troopas, bob - bombs, and hammer bros.Each one has a different level of endurance, along with a kind of attack pattern. The player can choose to play by themselves, or play with others. Also, they don't just have to play as Mario, they can also play as Luigi, Princess Peach, Toad, or even Yoshi. Some powerups will also be included, such as 1-Up Mushrooms, Power Stars, and the F.L.U.D.D. The main goal of each stage is to survive long enough, with a timer being given in each level along with an enemy count. The player will find out about the controls and the story through an instruction screen, which they will come across once they press the start button. In order to beat this game, the player needs a lot of focus, strategy, and determination.</p>
-        
-        <h3 id="how to play">Controls:</h3>
-        <ul id="controls">
-            <li>Move: Arrow Keys</li>
-            <li>Change Direction: Mouse</li>
-        </ul>
-    
-    <h2 id="screenshots">Screenshots:</h2>
-        <img/>
-    <h2 id="comments">Comments:</h2>
-        <form>
-            <input type="text" name="feedback">
-            <input type="submit" value="Submit" id="Submit">
-        </form>
-    
-    <h2>Libraries:</h2>
-        <ul>
-            
-        </ul>
-    <h2 id="description">About the Developer</h2>
-        <img src="Ikenna%20Ajah.jpg" alt="Ike Ajah" id="photo">
-        <div id="caption">Developed by Ikenna Ajah</div>
-        <ul>
-            <li><div class="aspect">Major:</div> Game Design and Development</li>
-            <li><div class="aspect">Year:</div> 2nd</li>
-            <li><div class="aspect">Skills:</div> Art, Cooking, Exercise, Athletics</li>
-            <li><div class="aspect">Interests:</div> Movies, School trips, sleeping, doing laundry, video games, and going on the Web</li>
-        </ul>
+    <section id="bottom">
+        <h2 id="screenshots">Screenshots:</h2>
+            <img/>
+        <h2 id="comments">Comments:</h2>
+            <form>
+                <input type="text" name="feedback">
+                <input type="submit" value="Submit" id="Submit">
+            </form>
+
+        <h2>Libraries:</h2>
+            <ul>
+
+            </ul>
+        <h2 id="description">About the Developer</h2>
+            <img src="Ikenna%20Ajah.jpg" alt="Ike Ajah" id="photo">
+            <div id="caption">Developed by Ikenna Ajah</div>
+            <ul id="facts">
+                <li><div class="aspect">Major:</div> Game Design and Development</li>
+                <li><div class="aspect">Year:</div> 2nd</li>
+                <li><div class="aspect">Skills:</div> Art, Cooking, Exercise, Athletics</li>
+                <li><div class="aspect">Interests:</div> Movies, School trips, sleeping, doing laundry, video games, and going on the Web</li>
+            </ul>
+    </section>
         <footer>
             <div><link rel="stylesheet" type="text/css" href="index.css"></div>
             <div id="copyright">&copy;2018 Ikenna Ajah</div>
@@ -111,6 +122,7 @@
         <ul>
             <li><a href="https://www.w3schools.com/">w3schools.com</a></li>
             <li><a href="https://www.google.com/imghp?hl=en">Google Images</a></li>
+            <li><a href="https://flexboxfroggy.com/">Flexbox Froggy</a></li>
         </ul>
     </body>
     <footer>
