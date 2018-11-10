@@ -1,0 +1,398 @@
+//HTML - the content of the web application
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <link href="media/get_schwifty.ttf" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+ 	<title>Citadel of Rick and Morty</title>
+ 	<style>
+	/* We have no style! */
+ 	</style>
+	<!-- Import jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="js/index.js"></script>
+
+</head>
+<body>
+<header>
+ <h1>Citadel of Rick and Morty</h1>
+</header>
+    <nav>
+        <li id="current"><a href=index.html>Home</a></li>
+        <li class="beside"><a href="documentation.html">Documentation</a></li>
+    </nav>
+    
+    <section class="search">
+                <p>Please choose a category first to begin searching:</p>
+            <ul>
+                <li class="choice"><button class="category">Characters</button></li>
+                <li class="choice"><button class="category">Universe</button></li>
+                <li class="choice"><button class="category">Episodes</button></li>
+            </ul>
+           <p>Number of results: </p>
+            <select id="results">
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        <p><input id="searchterm" type="text" size="50" maxlength="50"  placeholder="Enter anything to explore the world of Rick and Morty!"/></p>
+            <p><button type="button" id="search" class="green"><i class ="search">&#128269;</i></button></p>
+    </section>
+<p id="debug"></p>
+<hr>
+<h2>Results</h2>
+ <div id="content">
+ <p id="placeholder">No data yet!</p>
+ </div>
+
+<footer>
+    <button id="next">More Results</button>
+    <div>&copy; 2018 Ikenna Ajah</div>
+</footer>
+</body>
+</html>
+
+//CSS
+@font-face{
+    font-family: getSchwifty;
+    src: url(../media/get_schwifty.ttf);
+}
+header{
+    background-image: url(../media/background.jpg);
+    background-position: top;
+    margin-top: 0em;
+    height: 500px;
+    width: 100%;
+    font-family: "getSchwifty";
+    color:aqua;
+    text-shadow: 3px 2px greenyellow;
+    font-size: 50px;
+}
+body{
+    color: greenyellow;
+    font-family: sans-serif;
+    background-color: black;
+}
+nav li{
+    display: inline;
+    background-color: blue;
+    border: 1px solid greenyellow;
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    float: left;
+    align-self: center
+
+}
+
+nav{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style-type: none;
+}
+li a:enabled{
+    color: white
+}
+li a:hover{
+    background-color: aqua;
+}
+li a:active{
+    background-color: yellow;
+}
+.current{
+    background-color: green;
+}
+#current{
+    background-color: purple;
+}
+section{
+    border: 1px solid white;
+    background-color: gray;
+    color: orange;
+    border-radius: 25px;
+    width: 20%;
+    height: 50%;
+    padding: 1em;
+    margin: 1em;
+    position: relative;
+    float: inherit;
+    display: inline-block;
+    
+}
+section img{
+    margin: 1em;
+    padding: 25px;
+}
+.choice{
+    background-color: greenyellow;
+    border: 1px solid white;
+    display: inline-block;
+    text-align: center;
+    float: left;
+    position: relative;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 25px;
+    font-weight: bold;
+}
+button{
+    background-color: greenyellow;
+}
+.beside{
+    float: right;
+    width: 49%;
+
+}
+#search{
+        background-color: greenyellow;
+        border-radius: 25px;
+}
+.search{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+    width: 25%;
+}
+#doc{
+    width: 95%;
+}
+
+//JavaScript
+<!--  
+	window.onload = init;
+    let term;
+    let jquery;
+    let links;
+    let number;
+    let count;
+    let current;
+    let mode;
+    let nameKey;
+    let start = 0;
+    let indexes;
+    let num; 
+    let increasing;
+const numkey = "ira8296num";
+
+    //Loads the entire web page
+	function init(){
+        
+        const storedName = localStorage.getItem(nameKey);
+            const storedNumber = localStorage.getItem(numkey);
+            if(storedName){
+                document.querySelector("input").value = storedName;
+            }
+            if(storedNumber){
+                document.querySelector("select").value = storedNumber;
+            }
+    document.querySelector("#search").onclick = (e) => {
+        if(jquery.includes("https://rickandmortyapi.com/api/character/") || jquery.includes("https://rickandmortyapi.com/api/episode/") || jquery.includes("https://rickandmortyapi.com/api/location/")){
+                indexes = document.querySelector("select").value;
+                num = parseInt(indexes);
+            nameKey = document.querySelector("#searchterm").value;
+            if(jquery.length > 10){
+                try{
+                    //document.querySelector("#content").innerHTML = "";
+                    getData();
+                }
+                catch(err){
+                    document.querySelector("#content").innerHTML = `<p><i>Problem! Content not found!</p>`;
+                }
+
+            }
+        }
+        else{
+            document.querySelector("#content").innerHTML = `<p><i>Please choose a category first</p>`;
+        }
+            
+    }
+    const localInput = nameKey;
+    document.querySelector("input").onchange = (e) =>{
+        localStorage.setItem(nameKey,e.target.value);
+    };
+    document.querySelector("select").onchange = (e) =>{
+        localStorage.setItem(numkey,e.target.value);
+    };
+            
+            term = ""; // we declared `term` out here because we will need it later
+            jquery = "https://rickandmortyapi.com/api/";
+            links = document.getElementsByClassName("category");
+            for(let i = 0; i < links.length; i++){
+                links[i].onclick = (e) =>{
+                    if(links[i].innerHTML == "Characters"){
+                        mode = "characters";
+                        jquery = "https://rickandmortyapi.com/api/character/";
+                        document.querySelector("#debug").innerHTML = `<b>Querying web service for:</b> <a href="${jquery}" target="_blank">Characters</a>`;
+                    }
+                    else if(links[i].innerHTML == "Episodes"){
+                        mode = "episodes";
+                        jquery = "https://rickandmortyapi.com/api/episode/";
+                        document.querySelector("#debug").innerHTML = `<b>Querying web service for:</b> <a href="${jquery}" target="_blank">Episodes</a>`;
+
+                    }
+                    else if(links[i].innerHTML == "Universe"){
+                        mode = "universe";
+                        jquery = "https://rickandmortyapi.com/api/location/";
+                        document.querySelector("#debug").innerHTML = `<b>Querying web service for:</b> <a href="${jquery}" target="_blank">Locations</a>`;
+                    }
+                }
+            }
+            document.querySelector("#next").onclick = (e) =>{ 
+                  increasing = true;
+                  if(num < 10){
+                    start = num;
+                    num = num + (10 - num);
+                    getData();
+                  }
+                  else{
+                      document.querySelector("#next").disabled = true;
+                  }
+              }
+          }
+	
+    //Searches for the data on the api jquery
+	function getData(){
+		// 1 - main entry point to web service
+		let SERVICE_URL = jquery;
+		
+		// No API Key required!
+		
+		// 2 - build up our URL string
+		let url = SERVICE_URL + "?name=";
+		
+		// 3 - parse the user entered term we wish to search
+		term = document.querySelector("#searchterm").value;
+		
+		// get rid of any leading and trailing spaces
+		term = term.trim();
+		// encode spaces and special characters
+		term = encodeURIComponent(term);
+		
+		// if there's no term to search then bail out of the function (return does this)
+		if(term.length < 1){
+			document.querySelector("#debug").innerHTML = "<b>Enter a search term first!</b>";
+			return;
+		}
+		url += term;
+		
+		// 4 - update the UI
+		document.querySelector("#debug").innerHTML = "Searching for " + term;
+		// 5- call the web service, and prepare to download the file
+                $.ajax({
+                  dataType: "json",
+                  url: url,
+                  data: null,
+                  success: jsonLoaded,
+                  error:  errorMessage  
+                });
+
+
+		
+		
+	}
+
+    //Returns an error message to the user stating that the content they requested couldn't be found
+    function errorMessage(obj){
+            document.querySelector("#content").innerHTML = `<p><i>Problem! Content not found!</p>`;
+        }
+      window.onerror = function(){
+          document.querySelector("#content").innerHTML = `<p><i>Problem! Content not found!</p>`;
+      }
+      
+	//Displays results on the web page
+	function jsonLoaded(obj){
+            /*let indexes = document.querySelector("select").value;
+            let num = parseInt(indexes); */
+		// 6 - if there are no results, print a message and return
+		if(obj.error != undefined){
+			let msg = obj.error;
+			document.querySelector("#content").innerHTML = `<p><i>Problem! <b>${msg}</b></p>`;
+			return; // Bail out
+		}
+		// 7 - if there is an array of results, loop through them
+		// this is a weird API, the name of the key is the day of the week you asked for
+		let results = obj.results;
+		/*if(!results){
+			document.querySelector("#content").innerHTML = `<p><i>Problem! <b>No results for "${term}"</b></p>`;
+			return;
+		}*/
+		
+		
+		let bigString = `<p><i>Here are <b>${num}</b> results!</i></p>`; // ES6 String Templating
+        document.querySelector("#content").innerHTML = "";
+        for (let i=start;i<num;i++){
+                    let result;
+                    let card = document.createElement("section");
+                    if(results[i] != undefined){
+                        let result = results[i];
+                        if(mode == "characters"){
+                            let status = document.createElement("p");
+                            status.innerHTML = "Status: " + result.status;
+                            let species = document.createElement("p");
+                            species.innerHTML = "Species: " + result.species;
+                            let gender = document.createElement("p");
+                            gender.innerHTML = "Gender: " + result.gender;
+                            let location = document.createElement("p");
+                            location.innerHTML = "Location: " + result.location.name;
+                            let image = document.createElement("img");
+                            image.src = result.image;
+                            let title = document.createElement("h3");
+                            title.innerHTML = result.name;
+                            let type = document.createElement("p");
+                            type.innerHTML = "Type: " + result.type;
+                            let info = [image, title, status, species, gender, location, type];
+                            for(let n=0; n < info.length; n++){
+                                card.appendChild(info[n]);
+                            }
+                        }
+                    else if(mode == "episodes"){
+                        let title = document.createElement("h3");
+                        title.innerHTML = result.name;
+                        let date = document.createElement("p");
+                        date.innerHTML = "Air Date: " + result.air_date;
+                        let url = document.createElement("p");
+                        url.innerHTML = "URL: " + result.url;
+                        let info = [title, date, characters, url];
+                        for(let n=0; n < info.length; n++){
+                            card.appendChild(info[n]);
+                        }
+                    }
+                    else if(mode == "universe"){
+                        let title = document.createElement("h3");
+                        title.innerHTML = result.name;
+                        let type = document.createElement("p");
+                        type.innerHTML = "Type: " + result.type;
+                        let dimension = document.createElement("p");
+                        dimension.innerHTML = "Dimension: " + result.dimension;
+                        let residents = document.createElement("p");
+                        residents.innerHTML = "Residents: " + result.residents;
+                        let url = document.createElement("p");
+                        url.innerHTML = "URL: " + result.url;
+                        let info = [title, type, dimension, residents, url];
+                        for(let n=0; n < info.length; n++){
+                            card.appendChild(info[n]);
+                        }
+
+
+
+                }
+
+                }
+                        // 8 - display final results to user
+                        //document.getElementById("placeholder").innerHTML = "";
+                        document.querySelector("#content").appendChild(card);
+
+
+           }
+    }
+
+    
+-->	
+
+
